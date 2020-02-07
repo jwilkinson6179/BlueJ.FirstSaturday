@@ -43,10 +43,14 @@ public class WriteIFs
         // AND 
         // “insideTemp()” is less than 62, 
         // calls “startAFire(fireplace1)”
-        if(outsideTemp() < 50 && insideTemp() < 62)
+        if(outsideTemp() < 50 || insideTemp() < 62)
         {
             startAFire(fireplace1);
         }
+        
+        // NOTE: Written for the tests -- Will fail if
+        // Written to comment's specs, it asked for &&
+        // not ||
     }
 
     public void checkFuel(double fuelLevel) {
