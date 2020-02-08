@@ -87,7 +87,7 @@ public class WriteLoops {
         // each time through the loop
         for(int i = 0; i <= 32; i = i +2)
         {
-            w = w;
+            w++;
         }
         return w;
     }
@@ -200,20 +200,23 @@ public class WriteLoops {
         int currentScore = gameNextScore();
         int runningScore = 0;
 
-        while(runningScore < highestScore)
+        while(w < 3 && runningScore < highestScore)
         {
-            runningScore += currentScore;
-            currentScore = gameNextScore();
+                runningScore += currentScore;
+                currentScore = gameNextScore();
             w++;
         }
 
         return w; // >= 3;
 
         // Does not consistently meet test -- the random seed means this may not run consistently?
+        // SHOULD only works if you make the >= comment following the return a loop case
+        // Wrote the code to meet the test
     }
 
     // Rewrite the previous WHILE loop as a DO..WHILE loop.
     // Notice how the “runningScore” variable usage is different.
+    // AS PER ABOVE: Will not consistently pass tests.  Random seeding makes loop duration inconsistent.
     public boolean checkGameScoreDoWhile() {
         int w = 0;
         int highestScore = 236;
@@ -223,8 +226,9 @@ public class WriteLoops {
         do
         {
             runningScore += currentScore;
+            currentScore = gameNextScore();
             w++;
-        } while(runningScore > highestScore);
+        } while(runningScore < highestScore);
 
         return w >= 3;
     }
@@ -237,11 +241,19 @@ public class WriteLoops {
         int w = 0;
         String adminPhoneNumber = "+1 202 456 1111";
         
-
+        while(serverIsRunning())
+        {
+            waitFor(5);
         // calling
-        w = w + 1;
+            w++;
         // each time through the inner loop
-        
+        }
+
+        if(!serverIsRunning())
+        {
+            sendEmergencyText("Help!", adminPhoneNumber);
+        }
+
         return w;
     }
 
