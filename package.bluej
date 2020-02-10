@@ -1,9 +1,9 @@
 #BlueJ package file
-dependency1.from=WriteLoopsTest
-dependency1.to=WriteLoops
+dependency1.from=WriteIFsTest
+dependency1.to=WriteIFs
 dependency1.type=UsesDependency
-dependency2.from=WriteIFsTest
-dependency2.to=WriteIFs
+dependency2.from=WriteLoopsTest
+dependency2.to=WriteLoops
 dependency2.type=UsesDependency
 editor.fx.0.height=722
 editor.fx.0.width=800
